@@ -25,9 +25,6 @@ function App() {
                 </span>
                 ),
                 Cell: ({ row}) =>
-                    // Use the row.canExpand and row.getToggleRowExpandedProps prop getter
-                    // to build the toggle for expanding a row
-                    // row.canExpand ? (
                     <span
                         {...row.getToggleRowExpandedProps({
                             style: {
@@ -42,10 +39,6 @@ function App() {
             {
                 Header: "Genes associated with lung carcinoma",
                 columns: [
-                    // {
-                    //     Header: "",
-                    //     Cell: "+"
-                    // },
                     {
                         Header: "Approved Symbol",
                         Cell: ({ row }) => <a href={"https://platform.opentargets.org/target/" + row.original.target.id}>{row.original.target.gene_info.symbol}</a>,
@@ -70,14 +63,6 @@ function App() {
             <Table columns={columns} data={data} />
         </div>
     );
-
-  // return (
-  //     <div className="App">
-  //       <div>
-  //         <p>Hello world</p>
-  //       </div>
-  //     </div>
-  // );
 }
 
 export default App;

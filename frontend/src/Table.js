@@ -1,5 +1,3 @@
-// Table.js
-
 import React from "react";
 import {useExpanded, useTable} from "react-table";
 import chart from "./chart";
@@ -41,21 +39,15 @@ export default function Table({columns, data}) {
                             })}
                         </tr>
                         {/*
-                    If the row is in an expanded state, render a row with a
-                    column that fills the entire length of the table.
-                  */
+                            If the row is in an expanded state, render a row with a
+                            column that fills the entire length of the table.
+                         */
                         }
                         {
                             row.isExpanded ? (
                                 <tr>
                                     <td colSpan={columns.length}>
-                                        {/*
-                              Inside it, call our renderRowSubComponent function. In reality,
-                              you could pass whatever you want as props to
-                              a component like this, including the entire
-                              table instance. But for this example, we'll just
-                              pass the rows
-                            */}
+                                        {}
                                         {chart(row)}
                                     </td>
                                 </tr>

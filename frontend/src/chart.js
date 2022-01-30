@@ -29,7 +29,6 @@ export default function Chart(data){
                     <Tooltip />
                     <Legend />
                     <Bar dataKey='val' fill="#8884d8" />
-                    {/*<Bar dataKey="uv" fill="#82ca9d" />*/}
                 </BarChart>
         );
 }
