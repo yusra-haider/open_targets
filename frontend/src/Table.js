@@ -1,8 +1,8 @@
 import React from "react";
 import {useExpanded, useTable} from "react-table";
-import chart from "./chart";
-
-export default function Table({columns, data}) {
+import './App.css';
+import './Table.css';
+export default function Table({columns, data, renderRowSubComponent}) {
 
     const {
         getTableProps,
@@ -38,17 +38,14 @@ export default function Table({columns, data}) {
                                 return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
                             })}
                         </tr>
-                        {/*
-                            If the row is in an expanded state, render a row with a
-                            column that fills the entire length of the table.
-                         */
+                        {
                         }
                         {
                             row.isExpanded ? (
                                 <tr>
-                                    <td colSpan={columns.length}>
+                                    <td colSpan={4}>
                                         {}
-                                        {chart(row)}
+                                        {renderRowSubComponent(row)}
                                     </td>
                                 </tr>
                             ) : null

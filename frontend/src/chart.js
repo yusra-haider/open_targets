@@ -1,4 +1,4 @@
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LabelList} from 'recharts';
 
 export default function Chart(data){
 
@@ -12,23 +12,29 @@ export default function Chart(data){
 
     return (
             <BarChart
-                    width={500}
-                    height={300}
+                    width={600}
+                    height={500}
                     data={arr}
 
                     margin={{
-                        top: 5,
-                        right: 30,
-                        left: 20,
+                        top: 25,
+                        right: 50,
+                        left: 30,
                         bottom: 5,
                     }}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey='name' />
+                    <XAxis dataKey='name'
+                           angle={-45}
+                           height={150}
+                           interval={0}
+                           textAnchor="end"
+                    />
                     <YAxis />
                     <Tooltip />
-                    <Legend />
-                    <Bar dataKey='val' fill="#8884d8" />
+                    <Bar dataKey="val" fill="#8884d8">
+                    </Bar>
+
                 </BarChart>
         );
 }

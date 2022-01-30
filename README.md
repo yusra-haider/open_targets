@@ -22,8 +22,24 @@ flask run
 
 Flask should now be running on the default address, which is `http://127.0.0.1:5000/`
 
+#### Run the frontend
 
+```script
+  cd frontend/
+```
 
+Install all dependencies 
+
+```script
+    npm install
+```
+
+To run the frontend application
+```script
+    npm start
+```
+
+Open the web app on `http://localhost:3000/`
 
 
 

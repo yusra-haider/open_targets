@@ -2,6 +2,7 @@ import React, { useMemo, useState, useEffect } from "react";
 import Table from "./Table";
 import axios from "axios";
 import './App.css';
+import chart from "./chart";
 
 
 function App() {
@@ -34,7 +35,6 @@ function App() {
                     >
                         {row.isExpanded ? '-' : '+'}
                     </span>
-                    // ) : null,
             },
             {
                 Header: "Genes associated with lung carcinoma",
@@ -59,9 +59,12 @@ function App() {
     );
 
     return (
-        <div className="App">
-            <Table columns={columns} data={data} />
-        </div>
+        // <><br/>
+            <div className="App">
+                <br/>
+                <Table columns={columns} data={data} renderRowSubComponent={chart} />
+            </div>
+        // </>
     );
 }
 
