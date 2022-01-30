@@ -1,9 +1,8 @@
 import React, { useMemo, useState, useEffect } from "react";
 import Table from "./Table";
-// import { useTable } from 'react-table'
-// import { Link } from 'react-router-dom';
 import axios from "axios";
 import './App.css';
+
 
 function App() {
 
@@ -20,13 +19,37 @@ function App() {
     const columns = useMemo(
         () => [
             {
+                id: 'expander',
+                Header: () => (
+                <span>
+                </span>
+                ),
+                Cell: ({ row}) =>
+                    // Use the row.canExpand and row.getToggleRowExpandedProps prop getter
+                    // to build the toggle for expanding a row
+                    // row.canExpand ? (
+                    <span
+                        {...row.getToggleRowExpandedProps({
+                            style: {
+                                paddingLeft: `${row.depth * 2}rem`,
+                            },
+                        })}
+                    >
+                        {row.isExpanded ? '-' : '+'}
+                    </span>
+                    // ) : null,
+            },
+            {
                 Header: "Genes associated with lung carcinoma",
                 columns: [
+                    // {
+                    //     Header: "",
+                    //     Cell: "+"
+                    // },
                     {
                         Header: "Approved Symbol",
-                        // accessor: "target.gene_info.symbol",
-                        // accessor: [link],
-                        Cell: ({ row }) => <a href={"https://platform.opentargets.org/target/" + row.original.target.id}>{row.original.target.gene_info.symbol}</a>
+                        Cell: ({ row }) => <a href={"https://platform.opentargets.org/target/" + row.original.target.id}>{row.original.target.gene_info.symbol}</a>,
+
                     },
                     {
                         Header: "Gene Name",
