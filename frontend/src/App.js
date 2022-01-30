@@ -11,7 +11,7 @@ function App() {
 
     useEffect(() => {
         (async () => {
-            const result = await axios("http://127.0.0.1:5000/get_data");
+            const result = await axios("http://127.0.0.1:5000/get_data",  { params: { disease_id: "EFO_0001071", limit: 5 } });
             setData(result.data["data"]);
             console.log(result.data["data"])
         })();
